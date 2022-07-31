@@ -9,6 +9,7 @@ const auth = createSlice({
     setUser: (state, action) => {
       // refres
       state.user = JSON.parse(action.payload);
+      console.log(state.user)
     },
   },
 });
