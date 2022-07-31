@@ -74,6 +74,9 @@ label {
       background: #b2dffc;
       cursor: auto;
     }
+    &:active {
+      opacity: 0.7;
+    }
   }
 }
 /* ------------ button component  ------------ */
