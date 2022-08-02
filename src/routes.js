@@ -1,5 +1,6 @@
 import Home from "pages/Home";
 import Login from "pages/Login";
+import Register from "pages/Register";
 import PrivateRoute from "components/PrivateRoute";
 
 const routes = [
@@ -11,6 +12,10 @@ const routes = [
   {
     path: "/login",
     element: <Login />,
+  },
+  {
+    path: "/register",
+    element: <Register />,
   },
 ];
 const checkAuth = (routes) =>

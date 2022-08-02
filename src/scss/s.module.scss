@@ -31,26 +31,7 @@
       }
 
       form {
-        .or {
-          margin: 16px 41px 0 41px;
-
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          color: #8e8e8e;
-          > div {
-            height: 1px;
-            flex: 1;
-            background: #dbdbdb;
-          }
-          > span {
-            margin: 0 18px;
-            font-size: 13px;
-            font-weight: 600;
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-              Helvetica, Arial, sans-serif;
-          }
-        }
+       
         .facebook {
           margin-top: 26px;
           display: flex;
@@ -164,3 +145,5 @@
     }
   }
 }
+
+

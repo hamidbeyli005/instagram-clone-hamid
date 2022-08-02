@@ -1,7 +1,10 @@
 import React from "react";
 import styles from "../scss/Components.module.scss";
+import { useField } from "formik";
 
 function Input({ show, label, setShow, value, ...props }) {
+  const [field] = useField(props);
+
   return (
     <label>
       <input
@@ -15,6 +18,7 @@ function Input({ show, label, setShow, value, ...props }) {
               }
             : null
         }
+        {...field}
         {...props}
       />
       <small style={value ? { top: "4px", fontSize: "10px" } : null}>

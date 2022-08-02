@@ -4,18 +4,28 @@ import Input from "components/Input";
 import { useEffect, useRef, useState } from "react";
 import styles from "../scss/s.module.scss";
 import { GrFacebook } from "react-icons/gr";
-import { useNavigate, useLocation } from "react-router-dom";
+import { useLocation, Link, Navigate } from "react-router-dom";
 import { login } from "firabase.js";
+import { LoginSchema } from "validation";
+
+import { Formik, Form } from "formik";
+import Separator from "components/Separator";
+import { useSelector } from "react-redux";
+import Loader from "components/Loader";
 
 function Login() {
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
   const [show, setShow] = useState(true);
-  const navigate = useNavigate();
   const location = useLocation();
-
-  const disabled = username && password;
+  const [wait, setWait] = useState(false);
   const ref = useRef();
+  const user = useSelector((state) => state.auth.user);
+
+  const images = [
+    "./images/login/screenshoot1.png",
+    "./images/login/screenshoot2.png",
+    "./images/login/screenshoot3.png",
+    "./images/login/screenshoot4.png",
+  ];
 
   useEffect(() => {
     let images = ref.current.querySelectorAll("img"),
@@ -32,40 +42,25 @@ function Login() {
       clearInterval(interval);
     };
   }, [ref]);
+  if (user) {
+    return <Navigate to={location.state?.return_url || "/"} replace={true} />;
+  }
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-
-    await login(username, password);
-
-    navigate(location.state?.return_url || "/", {
-      replace: true,
-    });
+  if (wait) {
+    return <Loader />;
+  }
+  
+  const handleSubmit = async (values) => {
+    setWait(!wait);
+    await login(values.username, values.password);
   };
 
   return (
     <div className={styles.login}>
       <div className={styles.fade} ref={ref}>
-        <img
-          style={{ opacity: "0" }}
-          src="./images/login/screenshoot1.png"
-          alt=""
-        />
-        <img
-          style={{ opacity: "0" }}
-          src="./images/login/screenshoot2.png"
-          alt=""
-        />
-        <img
-          style={{ opacity: "0" }}
-          src="./images/login/screenshoot3.png"
-          alt=""
-        />
-        <img
-          style={{ opacity: "0" }}
-          src="./images/login/screenshoot4.png"
-          alt=""
-        />
+        {images.map((image, index) => (
+          <img key={index} style={{ opacity: "0" }} src={image} alt="" />
+        ))}
       </div>
       <div className={styles.right}>
         <div className={styles.loginForm}>
@@ -73,43 +68,51 @@ function Login() {
             <img src="./images/login/logo.png" alt="" />
           </a>
 
-          <form onSubmit={handleSubmit}>
-            <Input
-              type="text"
-              value={username}
-              label=" Telefon numarası, kullanıcı adı veya e-posta"
-              onChange={(e) => setUsername(e.target.value)}
-            ></Input>
+          <Formik
+            validationSchema={LoginSchema}
+            initialValues={{ username: "", password: "" }}
+            onSubmit={handleSubmit}
+          >
+            {({ values, isValid, dirty }) => (
+              <Form>
+                <Input
+                  type="text"
+                  name="username"
+                  value={values.username}
+                  label=" Telefon numarası, kullanıcı adı veya e-posta"
+                ></Input>
 
-            <Input
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              type={show ? "password" : "text"}
-              label="Şifre"
-              show={show ? "Hide" : "Show"}
-              setShow={() => setShow(!show)}
-              name="password"
-            ></Input>
+                <Input
+                  value={values.password}
+                  type={show ? "password" : "text"}
+                  label="Şifre"
+                  show={show ? "Hide" : "Show"}
+                  setShow={() => setShow(!show)}
+                  name="password"
+                ></Input>
 
-            <Button disabled={!disabled} label="Giriş Yap"></Button>
-            <div className={styles.or}>
-              <div></div>
-              <span>YA DA</span>
-              <div></div>
-            </div>
-            <div className={styles.facebook}>
-              <GrFacebook color="#385185"></GrFacebook>
-              <span> Facebook ile Giriş Yap</span>
-            </div>
-            <div>
-              <a href="/">Şifreni mi unuttun?</a>
-            </div>
-          </form>
+                <Button type="submit" disabled={!dirty || !isValid}>
+                  {" "}
+                  Giriş Yap
+                </Button>
+
+                <Separator label="YA DA"></Separator>
+
+                <div className={styles.facebook}>
+                  <GrFacebook color="#385185"></GrFacebook>
+                  <span> Facebook ile Giriş Yap</span>
+                </div>
+                <div>
+                  <a href="/">Şifreni mi unuttun?</a>
+                </div>
+              </Form>
+            )}
+          </Formik>
         </div>
 
         <div className={styles.signUp}>
           <p>
-            Hesabın yok mu? <a href="/">Kaydol</a>
+            Hesabın yok mu? <Link to="/register">Kaydol</Link>
           </p>
         </div>
 
