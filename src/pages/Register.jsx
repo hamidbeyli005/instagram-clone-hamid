@@ -10,6 +10,7 @@ import { RegisterSchema } from "validation";
 import { Formik, Form } from "formik";
 import Separator from "components/Separator";
 import Loader from "components/Loader";
+import { Helmet } from "react-helmet";
 
 function Login() {
   const [show, setShow] = useState(true);
@@ -34,11 +35,16 @@ function Login() {
 
   return (
     <div className={styles.login}>
+      <Helmet>
+        <title>Register • Instagram</title>
+      </Helmet>
       <div className={styles.right}>
         <div className={styles.loginForm}>
-          <a style={{ margin: " 36px 0 8px 0" }} href="/">
-            <img src="./images/login/logo.png" alt="" />
-          </a>
+          <img
+            style={{ margin: " 36px 0 8px 0" }}
+            src="./images/login/logo.png"
+            alt=""
+          />
           <h3
             style={{
               marginTop: "0",

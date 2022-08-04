@@ -52,7 +52,6 @@ label {
     cursor: pointer;
   }
 }
-/* ------------  INPUT component  ------------  */
 
 /* ------------ BUTTON component  ------------*/
 .btn {
@@ -70,10 +69,10 @@ label {
     font-size: 14px;
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
       Helvetica, Arial, sans-serif;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
     &[disabled] {
       background: #b2dffc;
       cursor: auto;
@@ -83,7 +82,6 @@ label {
     }
   }
 }
-/* ------------ BUTTON component  ------------ */
 
 /* ------------ LOADER component  ------------ */
 .loader {
@@ -108,8 +106,8 @@ label {
     letter-spacing: 3px;
   }
 }
-/* ------------ LOADER component  ------------ */
 
+/* ------------ SEPERATOR component  ------------ */
 .or {
   margin: 16px 41px 16px 41px;
 
@@ -128,5 +126,112 @@ label {
     font-weight: 600;
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
       Helvetica, Arial, sans-serif;
+  }
+}
+
+/* ------------ SEARCH component  ------------ */
+.Search {
+  height: 34px;
+  width: 268px;
+  margin-left: 140px;
+  position: relative;
+  > input {
+    position: absolute;
+    height: 34px;
+    width: 224px;
+    background: #efefef;
+    border: none;
+    border-radius: 8px;
+    padding-left: 42px;
+    font-size: 16px;
+    font-weight: 400;
+    outline: none;
+    &::placeholder {
+      color: rgb(142 142 142);
+      font-weight: 300;
+    }
+  }
+  > div {
+    position: absolute;
+    top: 9px;
+    z-index: 5;
+    padding-left: 15px;
+  }
+  > svg {
+    position: absolute;
+    right: 12px;
+    top: 11px;
+    fill: #c8c8c8;
+  }
+}
+
+.Header {
+  // margin: 0 16%;
+  > .top {
+    margin-top: 30px;
+    padding-bottom: 40px;
+    display: flex;
+    border-bottom: 1px solid #dbdbdb;
+    > div {
+      img {
+        padding: 0 60px;
+      }
+      &:last-child {
+        margin-left: 40px;
+        margin-bottom: 10px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        .username {
+          margin: 0;
+          font-weight: 300;
+          font-size: 28px;
+        }
+        .fullname {
+          font-size: 16px;
+          font-weight: bold;
+        }
+        > ul {
+          padding: 0;
+          display: flex;
+          gap: 40px;
+          li {
+            list-style: none;
+          }
+        }
+      }
+    }
+  }
+  > .bottom {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 70px;
+    a {
+      padding-top: 17px;
+
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      letter-spacing: 0.5px;
+      position: relative;
+
+      border-top: 1px solid transparent;
+      top: -1px;
+      color: rgb(142, 142, 142);
+      > svg {
+        color: rgb(142, 142, 142);
+      }
+      &.active {
+        border-top: 1px solid rgb(38, 38, 38);
+        color: rgb(38, 38, 38);
+        svg {
+          color: rgb(38, 38, 38);
+        }
+      }
+    }
   }
 }

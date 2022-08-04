@@ -42,6 +42,16 @@ onAuthStateChanged(auth, async (user) => {
     userHandle(false);
   }
 });
+export const getUserInfo = async (name) => {
+  const username = await getDoc(doc(db, "usernames", name));
+  if (username.exists()) {
+    return (await getDoc(doc(db, "users", username.data().user_id))).data();
+  } else {
+    toast.error("kullanıcı bulunamadı...");
+    throw new Error("kullanıcı bulunamadı...");
+  }
+};
+
 export const logOut = async () => {
   try {
     await signOut(auth);
@@ -82,6 +92,11 @@ export const register = async ({ email, password, fullname, username }) => {
           followers: [],
           following: [],
           notification: [],
+          website: "",
+          bio: "",
+          phoneNumber: "",
+          gender: "",
+          posts: 0,
         });
         await updateProfile(auth.currentUser, {
           displayName: fullname,

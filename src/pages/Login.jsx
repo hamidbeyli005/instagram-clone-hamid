@@ -12,6 +12,7 @@ import { Formik, Form } from "formik";
 import Separator from "components/Separator";
 import { useSelector } from "react-redux";
 import Loader from "components/Loader";
+import { Helmet } from "react-helmet";
 
 function Login() {
   const [show, setShow] = useState(true);
@@ -49,7 +50,7 @@ function Login() {
   if (wait) {
     return <Loader />;
   }
-  
+
   const handleSubmit = async (values) => {
     setWait(!wait);
     await login(values.username, values.password);
@@ -57,6 +58,9 @@ function Login() {
 
   return (
     <div className={styles.login}>
+      <Helmet>
+        <title>Login • Instagram</title>
+      </Helmet>
       <div className={styles.fade} ref={ref}>
         {images.map((image, index) => (
           <img key={index} style={{ opacity: "0" }} src={image} alt="" />
@@ -64,9 +68,7 @@ function Login() {
       </div>
       <div className={styles.right}>
         <div className={styles.loginForm}>
-          <a href="/">
             <img src="./images/login/logo.png" alt="" />
-          </a>
 
           <Formik
             validationSchema={LoginSchema}

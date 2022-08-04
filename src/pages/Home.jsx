@@ -1,13 +1,24 @@
-import Header from 'components/Header'
-import React from 'react'
+import React from "react";
+import { Helmet } from "react-helmet";
 
 function Home() {
   return (
     <div>
-      <Header/>
-      <h1>home component</h1>
+      <Helmet>
+        <title>Instagram</title>
+      </Helmet>
+
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+        }}
+      >
+        <h1>home component</h1>
+      </div>
     </div>
-  )
+  );
 }
 
-export default Home
+export default Home;
