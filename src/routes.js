@@ -9,6 +9,7 @@ import Posts from "pages/profile/Posts";
 import Tagged from "pages/profile/Tagged";
 import InboxLayout from "pages/inbox";
 import Inbox from "pages/inbox/Inbox";
+import Chat from "pages/inbox/chat";
 
 const routes = [
   {
@@ -32,6 +33,10 @@ const routes = [
           {
             index:true,
             element:<Inbox/>
+          },
+          {
+            path:":chatId",
+            element:<Chat/>
           }
         ]
       },
