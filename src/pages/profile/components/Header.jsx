@@ -9,6 +9,7 @@ function Header({ user }) {
           <img
             height={150}
             width={150}
+            style={{ borderRadius: "50%" }}
             src="./images/main/no_person.jpg"
             alt=""
           />
