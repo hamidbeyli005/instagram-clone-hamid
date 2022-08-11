@@ -9,22 +9,14 @@ import { register } from "firabase.js";
 import { RegisterSchema } from "validation";
 import { Formik, Form } from "formik";
 import Separator from "components/Separator";
-import Loader from "components/Loader";
 import { Helmet } from "react-helmet";
 
 function Login() {
   const [show, setShow] = useState(true);
   const navigate = useNavigate();
   const location = useLocation();
-  const [wait, setWait] = useState(false);
-
-  if (wait) {
-    return <Loader />;
-  }
 
   const handleSubmit = async (values) => {
-    setWait(!wait);
-
     const response = await register(values);
     if (response) {
       navigate(location.state?.return_url || "/", {
