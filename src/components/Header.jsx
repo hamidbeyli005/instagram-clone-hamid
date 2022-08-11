@@ -198,12 +198,12 @@ function Header() {
                   />
                 ) : (
                   <img
-                  style={{
-                    background: "#fff",
-                    padding: "1px",
-                    borderRadius: "50%",
-                    border: "1px solid #fff",
-                  }}
+                    style={{
+                      background: "#fff",
+                      padding: "1px",
+                      borderRadius: "50%",
+                      border: "1px solid #fff",
+                    }}
                     height={24}
                     width={24}
                     src="/images/main/no_person.jpg"
