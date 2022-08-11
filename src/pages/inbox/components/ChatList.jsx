@@ -6,7 +6,7 @@ function ChatList() {
     {
       id: 1,
       user: {
-        avatar: "./images/main/no_person.jpg",
+        avatar: "/images/main/no_person.jpg",
         name: "Hamid Hamidbeyli",
       },
       lastMessage: "Salammmm",
@@ -14,7 +14,7 @@ function ChatList() {
     {
       id: 2,
       user: {
-        avatar: "./images/main/no_person.jpg",
+        avatar: "/images/main/no_person.jpg",
         name: "Arif Hasanov",
       },
       lastMessage: "Hello how are you?",
@@ -22,7 +22,7 @@ function ChatList() {
     {
       id: 3,
       user: {
-        avatar: "./images/main/no_person.jpg",
+        avatar: "/images/main/no_person.jpg",
         name: "Ali Quliyev",
       },
       lastMessage: "salam hamid",
@@ -31,7 +31,7 @@ function ChatList() {
     {
       id: 4,
       user: {
-        avatar: "./images/main/no_person.jpg",
+        avatar: "/images/main/no_person.jpg",
         name: "Ruslan Quliyev",
       },
       lastMessage: "hello hamid",
