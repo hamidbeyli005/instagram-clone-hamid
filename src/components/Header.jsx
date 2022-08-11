@@ -14,7 +14,7 @@ function Header() {
             style={{ marginTop: "10px", marginLeft: "8px" }}
             height={29}
             width={103}
-            src="./images/main/logo.png"
+            src="/images/main/logo.png"
             alt=""
           />
         </div>
@@ -24,45 +24,77 @@ function Header() {
         <nav>
           <div>
             <NavLink to="/">
-              <svg
-                aria-label="Home"
-                color="#262626"
-                fill="#262626"
-                height="24"
-                viewBox="0 0 24 24"
-                width="24"
-              >
-                <path
-                  d="M9.005 16.545a2.997 2.997 0 012.997-2.997h0A2.997 2.997 0 0115 16.545V22h7V11.543L12 2 2 11.543V22h7.005z"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                ></path>
-              </svg>
+              {({ isActive }) =>
+                isActive ? (
+                  <svg
+                    aria-label="Home"
+                    color="#262626"
+                    fill="#262626"
+                    height="24"
+                    role="img"
+                    viewBox="0 0 24 24"
+                    width="24"
+                  >
+                    <path d="M22 23h-6.001a1 1 0 01-1-1v-5.455a2.997 2.997 0 10-5.993 0V22a1 1 0 01-1 1H2a1 1 0 01-1-1V11.543a1.002 1.002 0 01.31-.724l10-9.543a1.001 1.001 0 011.38 0l10 9.543a1.002 1.002 0 01.31.724V22a1 1 0 01-1 1z"></path>
+                  </svg>
+                ) : (
+                  <svg
+                    aria-label="Home"
+                    color="#262626"
+                    fill="#262626"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    width="24"
+                  >
+                    <path
+                      d="M9.005 16.545a2.997 2.997 0 012.997-2.997h0A2.997 2.997 0 0115 16.545V22h7V11.543L12 2 2 11.543V22h7.005z"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                    ></path>
+                  </svg>
+                )
+              }
             </NavLink>
           </div>
           <div>
             <NavLink to="/inbox">
-              <svg
-                aria-label="Messenger"
-                color="#262626"
-                fill="#262626"
-                height="24"
-                viewBox="0 0 24 24"
-                width="24"
-              >
-                <path
-                  d="M12.003 2.001a9.705 9.705 0 110 19.4 10.876 10.876 0 01-2.895-.384.798.798 0 00-.533.04l-1.984.876a.801.801 0 01-1.123-.708l-.054-1.78a.806.806 0 00-.27-.569 9.49 9.49 0 01-3.14-7.175 9.65 9.65 0 0110-9.7z"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeMiterlimit="10"
-                  strokeWidth="1.739"
-                ></path>
-                <path
-                  d="M17.79 10.132a.659.659 0 00-.962-.873l-2.556 2.05a.63.63 0 01-.758.002L11.06 9.47a1.576 1.576 0 00-2.277.42l-2.567 3.98a.659.659 0 00.961.875l2.556-2.049a.63.63 0 01.759-.002l2.452 1.84a1.576 1.576 0 002.278-.42z"
-                  fillRule="evenodd"
-                ></path>
-              </svg>
+              {({ isActive }) =>
+                isActive ? (
+                  <svg
+                    aria-label="Messenger"
+                    color="#262626"
+                    fill="#262626"
+                    height="24"
+                    role="img"
+                    viewBox="0 0 24 24"
+                    width="24"
+                  >
+                    <path d="M12.003 1.131a10.487 10.487 0 00-10.87 10.57 10.194 10.194 0 003.412 7.771l.054 1.78a1.67 1.67 0 002.342 1.476l1.935-.872a11.767 11.767 0 003.127.416 10.488 10.488 0 0010.87-10.57 10.487 10.487 0 00-10.87-10.57zm5.786 9.001l-2.566 3.983a1.577 1.577 0 01-2.278.42l-2.452-1.84a.63.63 0 00-.759.002l-2.556 2.049a.659.659 0 01-.96-.874L8.783 9.89a1.576 1.576 0 012.277-.42l2.453 1.84a.63.63 0 00.758-.003l2.556-2.05a.659.659 0 01.961.874z"></path>
+                  </svg>
+                ) : (
+                  <svg
+                    aria-label="Messenger"
+                    color="#262626"
+                    fill="#262626"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    width="24"
+                  >
+                    <path
+                      d="M12.003 2.001a9.705 9.705 0 110 19.4 10.876 10.876 0 01-2.895-.384.798.798 0 00-.533.04l-1.984.876a.801.801 0 01-1.123-.708l-.054-1.78a.806.806 0 00-.27-.569 9.49 9.49 0 01-3.14-7.175 9.65 9.65 0 0110-9.7z"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeMiterlimit="10"
+                      strokeWidth="1.739"
+                    ></path>
+                    <path
+                      d="M17.79 10.132a.659.659 0 00-.962-.873l-2.556 2.05a.63.63 0 01-.758.002L11.06 9.47a1.576 1.576 0 00-2.277.42l-2.567 3.98a.659.659 0 00.961.875l2.556-2.049a.63.63 0 01.759-.002l2.452 1.84a1.576 1.576 0 002.278-.42z"
+                      fillRule="evenodd"
+                    ></path>
+                  </svg>
+                )
+              }
             </NavLink>
           </div>
           <div>
@@ -150,12 +182,35 @@ function Header() {
           </div>
           <div>
             <NavLink to={`/` + username}>
-              <img
-                height={24}
-                width={24}
-                src="./images/main/no_person.jpg"
-                alt=""
-              />
+              {({ isActive }) =>
+                isActive ? (
+                  <img
+                    style={{
+                      background: "#fff",
+                      padding: "1px",
+                      borderRadius: "50%",
+                      border: "1px solid rgb(38 38 38)",
+                    }}
+                    height={24}
+                    width={24}
+                    src="/images/main/no_person.jpg"
+                    alt=""
+                  />
+                ) : (
+                  <img
+                  style={{
+                    background: "#fff",
+                    padding: "1px",
+                    borderRadius: "50%",
+                    border: "1px solid #fff",
+                  }}
+                    height={24}
+                    width={24}
+                    src="/images/main/no_person.jpg"
+                    alt=""
+                  />
+                )
+              }
             </NavLink>
           </div>
         </nav>
