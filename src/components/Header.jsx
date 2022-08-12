@@ -1,3 +1,4 @@
+import { useWindowWidth } from "@react-hook/window-size";
 import { useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
 import styles from "../scss/s.module.scss";
@@ -5,6 +6,7 @@ import Search from "./Search";
 
 function Header() {
   const { username } = useSelector((state) => state.auth.user);
+  const onlyWidth = useWindowWidth();
 
   return (
     <div className={styles.Header}>
@@ -19,7 +21,8 @@ function Header() {
           />
         </div>
         <div>
-          <Search />
+          {onlyWidth>650?<Search />:null}
+          
         </div>
         <nav>
           <div>

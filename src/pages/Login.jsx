@@ -12,12 +12,15 @@ import { Formik, Form } from "formik";
 import Separator from "components/Separator";
 import { useSelector } from "react-redux";
 import { Helmet } from "react-helmet";
+import { useWindowWidth } from "@react-hook/window-size";
 
 function Login() {
   const [show, setShow] = useState(true);
   const location = useLocation();
   const ref = useRef();
   const user = useSelector((state) => state.auth.user);
+
+  const onlyWidth = useWindowWidth();
 
   const images = [
     "./images/login/screenshoot1.png",
@@ -45,8 +48,6 @@ function Login() {
     return <Navigate to={location.state?.return_url || "/"} replace={true} />;
   }
 
-
-
   const handleSubmit = async (values) => {
     await login(values.username, values.password);
   };
@@ -56,14 +57,17 @@ function Login() {
       <Helmet>
         <title>Login • Instagram</title>
       </Helmet>
-      <div className={styles.fade} ref={ref}>
-        {images.map((image, index) => (
-          <img key={index} style={{ opacity: "0" }} src={image} alt="" />
-        ))}
-      </div>
+      {onlyWidth > 876 ? (
+        <div className={styles.fade} ref={ref}>
+          {images.map((image, index) => (
+            <img key={index} style={{ opacity: "0" }} src={image} alt="" />
+          ))}
+        </div>
+      ) : null}
+
       <div className={styles.right}>
         <div className={styles.loginForm}>
-            <img src="./images/login/logo.png" alt="" />
+          <img src="./images/login/logo.png" alt="" />
 
           <Formik
             validationSchema={LoginSchema}

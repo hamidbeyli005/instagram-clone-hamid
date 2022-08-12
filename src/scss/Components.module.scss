@@ -135,6 +135,12 @@ label {
   width: 268px;
   margin-left: 140px;
   position: relative;
+  @media (max-width:850px) {
+    margin: 0 40px;
+  }
+  @media (max-width:730px) {
+    margin: 0 0 0 10px;
+  }
   > input {
     position: absolute;
     height: 34px;
@@ -146,6 +152,12 @@ label {
     font-size: 16px;
     font-weight: 400;
     outline: none;
+    @media (max-width:700px) {
+      width: 200px;
+    }
+    @media (max-width:670px) {
+      width: 180px;
+    }
     &::placeholder {
       color: rgb(142 142 142);
       font-weight: 300;
@@ -241,6 +253,9 @@ label {
   width: 350px;
   // height: 100%;
   border-right: 1px solid #dbdbdb;
+  @media (max-width:900px) {
+    width: 300px;
+  }
   > header {
     height: 60px;
     background: #fff;
