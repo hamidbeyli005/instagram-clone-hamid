@@ -18,7 +18,7 @@ function Home() {
         }}
       >
         <h1>home component</h1>
-        <button onClick={logOut()}>logout</button>
+        <button type="button" onClick={logOut}>logout</button>
       </div>
     </div>
   );
