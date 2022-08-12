@@ -23,7 +23,7 @@ const routes = [
     auth: true,
     children: [
       {
-        path: "logout",
+        path: "/logout",
         element: <Logout />,
       },
       {
