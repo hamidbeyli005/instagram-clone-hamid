@@ -1,5 +1,7 @@
 import React from "react";
 import { Helmet } from "react-helmet";
+import { logOut } from "firabase.js";
+
 
 function Home() {
   return (
@@ -16,6 +18,7 @@ function Home() {
         }}
       >
         <h1>home component</h1>
+        <button onClick={logOut()}>logout</button>
       </div>
     </div>
   );
